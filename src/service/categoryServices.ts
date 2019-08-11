@@ -13,7 +13,7 @@ export function loadProductsList(): Promise<Product[]> {
 }
 
 //check id of products and return the product if found else return undefined
-export function checkIdProduct(id: string): Promise<Product | undefined> {
+export function getProductById(id: string): Promise<Product | undefined> {
     const matching = productArray.find(o => o.id === id); //id not found
     if (matching === undefined) {
         return Promise.reject(new Error("id not found"));
@@ -22,7 +22,7 @@ export function checkIdProduct(id: string): Promise<Product | undefined> {
 }
 
 //check id of category and return the category if found else return undefined
-export function checkIdCategory(id: string): Promise<Category | undefined> {
+export function getCategoryById(id: string): Promise<Category | undefined> {
     const matching = categoriesArray.find(o => o.id === id); //id not found
     if (matching === undefined) {
         return Promise.reject(new Error("id not found"));
@@ -91,10 +91,10 @@ export function findIndexCategories(req: Request, res: Response) {
 }
 
 //find products with the given category name, return products list in that category
-export function findAllProducts(name: string): Product[] {
+export function findAllProducts(id: string): Product[] {
     const product: Product[] = [];
     for (let i = 0; i < productArray.length; i++) {
-        if (productArray[i].categoryId === name) {
+        if (productArray[i].categoryId === id) {
             product.push(productArray[i]);
         }
     }

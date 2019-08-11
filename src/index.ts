@@ -13,8 +13,9 @@ const server = app.listen(app.get('port'), async () => {
     app.get('env'),
   );
   console.log(' Press CTRL-C to stop\n');
-  await loadProducts();   //load product from json file
+  
   await loadCategories(); //load categories from json file
+  await loadProducts();   //load product from json file
 });
 
 

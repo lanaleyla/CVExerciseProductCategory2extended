@@ -17,8 +17,8 @@ app.use(cors());
 app.use(logMiddleware);
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.use('/', productsRouter); //handle requests about products
-app.use('/', categoriesRouter); //handle requests about categories
+app.use('/api/products', productsRouter); //handle requests about products
+app.use('/api/categories', categoriesRouter); //handle requests about categories
 
 app.use(validationErrorHandler);
 

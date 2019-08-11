@@ -7,21 +7,21 @@ const router = Router(); //our router
 //Requests:get,post,put,delete
 
 //return all categories  
-router.get("/categories", userCategoryController.getAllCategories);
+router.get("/", userCategoryController.getAllCategories);
 
 //return specific category
-router.get("/categories/:id", validateId, userCategoryController.getCategoryByID);
+router.get("/:id", validateId, userCategoryController.getCategoryByID);
 
 //return products list of a specific category
-router.get("/categories/:id/products", validateId, userCategoryController.getAllProductsOfCategory);
+router.get("/:id/products", validateId, userCategoryController.getAllProductsOfCategory);
 
 //add category to categories list
-router.post('/categories/:name', userCategoryController.addcategory);
+router.post('/:name', userCategoryController.addcategory);
 
 //update category by given id
-router.put('/categories/:id/:name', validateId, userCategoryController.updatecategory);
+router.put('/:id/:name', validateId, userCategoryController.updatecategory);
 
 //delete category by id
-router.delete('/categories/:id', validateId, userCategoryController.deletecategory);
+router.delete('/:id', validateId, userCategoryController.deletecategory);
 
 export { router as routerC };
